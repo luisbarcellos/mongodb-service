@@ -1,13 +1,15 @@
-repositories {
-    mavenCentral()
-}
-
 allprojects {
+    repositories {
+        jcenter()
+        maven { url "http://dl.appnext.com/" }
+        maven { url "https://maven.google.com" }
+    }
+
     apply plugin: 'java'
     apply plugin: 'idea'
 
     ext {
-        springBootVersion = '1.5.9.RELEASE'
+        springBootVersion = '1.5.8.RELEASE'
     }
 
     sourceCompatibility = 1.8
@@ -15,20 +17,10 @@ allprojects {
 
     dependencies {
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: springBootVersion
-        compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: springBootVersion
-        compile group: 'org.springframework.boot', name: 'spring-boot-starter-jersey', version: springBootVersion
-        compile group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: springBootVersion
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-jetty', version: springBootVersion
-
-        compile group: 'io.swagger', name: 'swagger-jersey2-jaxrs', version: '1.5.10'
-        compile group: 'org.projectlombok', name: 'lombok', version: '1.16.10'
-
         testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: springBootVersion
-    }
-
-    jar {
-        baseName = 'gs-rest-service'
-        version =  '0.1.0'
+        compile group: 'io.swagger', name: 'swagger-jersey2-jaxrs', version: '1.5.16'
+        compile group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
     }
 
     configurations {
