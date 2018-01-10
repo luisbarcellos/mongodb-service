@@ -1,0 +1,1 @@
+include "mongodb-service-app", "mongodb-service-contract", "mongodb-service-impl"
