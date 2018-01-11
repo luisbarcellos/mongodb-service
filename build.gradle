@@ -1,29 +1,33 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.7.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
 allprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = 1.8
     repositories {
         jcenter()
-        maven { url "http://dl.appnext.com/" }
-        maven { url "https://maven.google.com" }
+        mavenCentral()
     }
-
-    apply plugin: 'java'
-    apply plugin: 'idea'
-
-    ext {
-        springBootVersion = '1.5.8.RELEASE'
-    }
-
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
-
     dependencies {
-        compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: springBootVersion
-        compile group: 'org.springframework.boot', name: 'spring-boot-starter-jetty', version: springBootVersion
-        testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: springBootVersion
-        compile group: 'io.swagger', name: 'swagger-jersey2-jaxrs', version: '1.5.16'
-        compile group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
-    }
+        compile group: 'org.projectlombok', name: 'lombok', version: '1.16.10'
+        compile group: 'com.jason-goodwin', name: 'better-monads', version: '0.4.0'
+        compile group: 'joda-time', name: 'joda-time', version: '2.3'
+        compile group: 'org.ostermiller', name: 'utils', version: '1.07.00'
+        compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.2'
+        compile("org.springframework.boot:spring-boot-starter-actuator:1.5.3.RELEASE")
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+        testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
 
-    configurations {
-        compile.exclude module: "spring-boot-starter-tomcat"
     }
 }

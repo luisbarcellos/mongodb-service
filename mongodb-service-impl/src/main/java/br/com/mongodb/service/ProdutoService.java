@@ -1,11 +1,16 @@
 package br.com.mongodb.service;
 
-import br.com.mongodb.model.ProdutoModel;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class ProdutoService {
-    public void inserirProduto(ProdutoModel produtoModel){
+//    private ProdutoData produtoData;
 
-    }
+//    public void inserirProduto(ProdutoModel produtoModel){
+//
+//    }
+//
+//    public ProdutoModel buscarProduto(Long codigo){
+//        return produtoData.findFirstByCodigo(codigo);
+//    }
 }

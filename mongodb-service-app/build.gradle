@@ -1,39 +1,9 @@
-apply plugin: 'spring-boot'
-apply plugin: 'distribution'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
 apply plugin: 'application'
+mainClassName = 'br.com.mongodb.Application'
 
-mainClassName = 'br.com.relatory.Application'
-
-distributions {
-    main {
-        contents { from jar }
-    }
-}
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath('org.springframework.boot:spring-boot-gradle-plugin:1.5.8.RELEASE')
-    }
-}
-
-repositories {
-    mavenCentral()
-}
-
-jar {
-    manifest {
-        attributes 'Implementation-Title': 'Titulo',
-                'Implementation-Version': 1.0,
-                'Main-Class': 'br.com.relatory.Application'
-    }
-
-    from({configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) }}) {
-        exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
-    }
-}
 
 dependencies {
     compile project(":mongodb-service-contract")

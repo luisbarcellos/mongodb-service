@@ -1,14 +1,16 @@
 package br.com.mongodb.contract.v1.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Produto {
+@Builder
+public class ProdutoContract {
     private Long codigo;
-    private String nome;
-    private Integer quantidade;
+//    private String nome;
+//    private Integer quantidade;
 }
