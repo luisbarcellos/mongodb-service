@@ -1,5 +1,7 @@
 package br.com.mongodb.service;
 
+import br.com.mongodb.database.ProdutoRepository;
+import br.com.mongodb.validator.ProdutoValidator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -7,12 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class ServiceModule {
 
     @Bean
-    public ProdutoService produtoService(){
-        return new ProdutoService();
+    public ProdutoService produtoService(ProdutoValidator produtoFacade, ProdutoRepository produtoRepository){
+        return new ProdutoService(produtoFacade, produtoRepository);
     }
-
-//    @Bean
-//    public ProdutoService produtoService(ProdutoData produtoData){
-//        return new ProdutoService(produtoData);
-//    }
 }
