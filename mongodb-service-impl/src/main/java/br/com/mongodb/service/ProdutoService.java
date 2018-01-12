@@ -14,7 +14,7 @@ public class ProdutoService {
         try {
             produtoRepository.save(produtoModel);
         }catch (Exception e){
-            produtoValidador.validarErroProdutoRepetiro(e.getMessage());
+            produtoValidador.validarErroProdutoRepetido(e.getMessage());
         }
     }
 
@@ -24,5 +24,14 @@ public class ProdutoService {
 
     public void deletarProduto(Long codigo){
         produtoRepository.delete(buscarProduto(codigo));
+    }
+
+    public void atualizarProduto(ProdutoModel produtoModel){
+        produtoModel.setId(buscarIdDoProduto(produtoModel.getCodigo()));
+        produtoRepository.save(produtoModel);
+    }
+
+    private String buscarIdDoProduto(Long codigo){
+        return buscarProduto(codigo).getId();
     }
 }

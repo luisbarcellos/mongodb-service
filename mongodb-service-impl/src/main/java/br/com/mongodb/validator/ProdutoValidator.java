@@ -14,7 +14,7 @@ public class ProdutoValidator {
         return Optional.ofNullable(produtoModel).orElseThrow(ProdutoNotFoundException::new);
     }
 
-    public void validarErroProdutoRepetiro(String erro){
+    public void validarErroProdutoRepetido(String erro){
         if(erro.contains(ERROR_DUPLICATE_KEY))
             throw new ProdutoRepetidoException();
         throw new ProdutoDataException();

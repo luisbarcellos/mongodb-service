@@ -34,4 +34,11 @@ public class ProdutoController {
                                @PathVariable("codigo") Long codigo) {
         produtoFacadeContract.deletarProduto(codigo);
     }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "")
+    @ResponseBody
+    @CrossOrigin(origins = "*")
+    public void atualizarProduto(@RequestBody Produto produto) {
+        produtoFacadeContract.atualizarProduto(produto);
+    }
 }

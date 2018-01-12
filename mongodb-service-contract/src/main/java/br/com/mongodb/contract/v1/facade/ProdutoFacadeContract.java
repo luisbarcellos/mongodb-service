@@ -20,4 +20,8 @@ public class ProdutoFacadeContract {
     public void deletarProduto(Long codigo){
         produtoService.deletarProduto(codigo);
     }
+
+    public void atualizarProduto(Produto produto){
+        produtoService.atualizarProduto(ProdutoBinder.bindToModel(produto));
+    }
 }
