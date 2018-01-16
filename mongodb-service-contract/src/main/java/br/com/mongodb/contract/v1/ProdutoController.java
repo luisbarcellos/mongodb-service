@@ -6,6 +6,8 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/produto")
 public class ProdutoController {
@@ -15,7 +17,7 @@ public class ProdutoController {
     @RequestMapping(method = RequestMethod.POST, value = "")
     @ResponseBody
     @CrossOrigin(origins = "*")
-    public void inserirProduto(@RequestBody Produto produto) {
+    public void inserirProduto(@Valid @RequestBody Produto produto) {
         produtoFacadeContract.inserirProduto(produto);
     }
 

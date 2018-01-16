@@ -26,8 +26,16 @@ allprojects {
         compile group: 'org.ostermiller', name: 'utils', version: '1.07.00'
         compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.2'
         compile("org.springframework.boot:spring-boot-starter-actuator:1.5.3.RELEASE")
-        testCompile group: 'junit', name: 'junit', version: '4.12'
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-jetty', version: springBootVersion
         testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+        testCompile group: 'junit', name: 'junit', version: '4.12'
 
+        testCompile group: 'de.flapdoodle.embed', name: 'de.flapdoodle.embed.mongo', version: '1.50.5'
+        testCompile group: 'cz.jirutka.spring', name: 'embedmongo-spring', version: '1.1'
+
+    }
+
+    configurations {
+        compile.exclude module: "spring-boot-starter-tomcat"
     }
 }
