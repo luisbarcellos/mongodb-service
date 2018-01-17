@@ -40,7 +40,7 @@ public class ProdutoController {
     @RequestMapping(method = RequestMethod.PUT, value = "")
     @ResponseBody
     @CrossOrigin(origins = "*")
-    public void atualizarProduto(@RequestBody Produto produto) {
+    public void atualizarProduto(@Valid @RequestBody Produto produto) {
         produtoFacadeContract.atualizarProduto(produto);
     }
 }
